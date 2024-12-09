@@ -1,0 +1,27 @@
+[
+    {
+        "email": "admin@mail.com",
+        "password": "admin",
+        "role": "Admin"
+    },
+    {
+        "email": "budi@gmail.com",
+        "password": "budi123",
+        "role": "User"
+    },
+    {
+        "email": "ani.sari@yahoo.com",
+        "password": "anisari456",
+        "role": "User"
+    },
+    {
+        "email": "angga_putra@outlook.com",
+        "password": "angga987",
+        "role": "User"
+    },
+    {
+        "email": "dinda@example.com",
+        "password": "dinda789",
+        "role": "User"
+    }
+]

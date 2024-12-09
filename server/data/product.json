@@ -1,0 +1,62 @@
+[
+    {
+      "name": "Donat Gula",
+      "description": "dibalut gula yang lembut",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN4sJOUtJWBG-hixFU5xlHuXyX4aMu57iDBg&s",
+      "stock": 4
+    },
+    {
+      "name": "Donat Coklat",
+      "description": "dengan topping coklat lumer",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-g3ef_jebLET40bYBJZMb2dAAMq2y1nfvog&s",
+      "stock": 10
+    },
+    {
+      "name": "Donat Kacang",
+      "description": "taburan kacang yang renyah",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIrp7bIUXiCClpMMDFyS3KXR-oqYFuypF91w&s",
+      "stock": 7
+    },
+    {
+      "name": "Donat Stroberi",
+      "description": "dengan selai stroberi segar",
+      "image": "https://i.pinimg.com/originals/94/61/5f/94615f7c7a9968eff60d1b41ff8f43f8.jpg",
+      "stock": 5
+    },
+    {
+      "name": "Donat Keju",
+      "description": "dengan taburan keju parut",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-g3ef_jebLET40bYBJZMb2dAAMq2y1nfvog&s",
+      "stock": 3
+    },
+    {
+      "name": "Donat Blueberry",
+      "description": "dengan blueberry segar",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN4sJOUtJWBG-hixFU5xlHuXyX4aMu57iDBg&s",
+      "stock": 8
+    },
+    {
+      "name": "Donat Matcha",
+      "description": "dengan rasa matcha yang unik",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN4sJOUtJWBG-hixFU5xlHuXyX4aMu57iDBg&s",
+      "stock": 2
+    },
+    {
+      "name": "Donat Oreo",
+      "description": "dengan biskuit oreo yang renyah",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-g3ef_jebLET40bYBJZMb2dAAMq2y1nfvog&s",
+      "stock": 12
+    },
+    {
+      "name": "Donat Susu",
+      "description": "dengan taburan gula halus",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN4sJOUtJWBG-hixFU5xlHuXyX4aMu57iDBg&s",
+      "stock": 6
+    },
+    {
+      "name": "Donat Rainbow",
+      "description": "dengan warna-warni yang menarik",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN4sJOUtJWBG-hixFU5xlHuXyX4aMu57iDBg&s",
+      "stock": 9
+    }
+  ]
