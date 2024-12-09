@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 export default function Card({ product }) {
     return (
         <>
-            <div className="card bg-base-100 w-96 shadow-xl mb-10">
-                <figure>
+            <div className="grid card bg-base-100 w-96 shadow-xl mb-10">
+                <figure className="h-80">
                     <img
                         src={product.image}
                         alt="donut" />
