@@ -29,7 +29,7 @@ export default function RootLayoutCms() {
                         {/* Sidebar content here */}
                         <li>
                             <Link to={"/admin"}>
-                                <span className="ml-2 text-xl font-bold">DonaturDonat</span>
+                                <span className="ml-2 text-xl font-bold">Donat<span style={{ color: "#FF748B" }}>ur</span>Donat</span>
                             </Link>
                         </li>
                         <li>

@@ -7,6 +7,7 @@ import ClaimTable from "./components/ClaimTable";
 import RootLayoutCms from "./layouts/RootLayoutCms";
 import CreateProduct from "./components/CreateProduct";
 import UserTable from "./components/UserTable";
+import DetailProduct from "./components/DetailProduct";
 
 // Function to parse JWT to get the payload
 const parseJwt = (token) => {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
             {
                 path: "claim/:id",
                 element: <ClaimTable />
+            },
+            {
+                path: "detail",
+                element: <DetailProduct />
             }
         ]
     },
