@@ -1,7 +1,36 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { instanceAxios } from "../axiosClient";
+
 
 export default function Card({ product }) {
+
+    const createClaim = async (e) => {
+        e.preventDefault();
+        try {
+            await instanceAxios.post(`/claims/${product.id}`, {
+                id: product.id
+            }, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("access_token")}`
+                }
+            });
+
+            Swal.fire({
+                title: "Success!",
+                text: "Product claimed successfully",
+                icon: "success",
+            });
+        } catch (error) {
+            Swal.fire({
+                title: "Error!",
+                text: `Failed to claim product: ${error.message}`,
+                icon: "error",
+            });
+        }
+    }
+
     return (
         <>
             <div className="grid card bg-base-100 w-96 shadow-xl mb-10">
@@ -18,7 +47,7 @@ export default function Card({ product }) {
                     <p>Stock : {product.stock}</p>
                     <div className="button-container card-actions justify-end">
                         <div className="button claim badge badge-outline bg-[#560F20] text-white hover:animate-pulse">
-                            <Link to={`/claim/${product.id}`}>
+                            <Link to={`/claim/${product.id}`} onClick={createClaim}>
                                 Claim
                             </Link>
                         </div>

@@ -18,8 +18,10 @@ router.post('/gemini-ai', ProductController.geminiApi)
 router.use(authentication)
 
 //Claim (conjunction)
-router.get('/claims', ClaimController.getClaimByUserId)
+router.get('/claims', ClaimController.getClaim)
+router.get('/claims/:id', ClaimController.getClaimByUserId)
 router.post('/claims/:id', ClaimController.createClaim)
+router.delete('/claims/:id', ClaimController.doneClaim)
 
 router.get('/products', ProductController.getAllProduct)
 router.get('/products/:id', ProductController.getProductById)

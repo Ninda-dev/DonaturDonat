@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { instanceAxios } from "../axiosClient";
+import Swal from "sweetalert2";
 
 export default function ClaimTable() {
     const [claim, setClaim] = useState([])
@@ -19,6 +20,33 @@ export default function ClaimTable() {
             console.log(error);
         }
     }
+
+    const claimDone = async (id) => {
+        try {
+            await instanceAxios.delete(`/claims/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("access_token")}`
+                }
+            });
+            fetchClaim();
+            Swal.fire({
+                title: "Success!",
+                text: "Claim was completed",
+                icon: "success",
+            });
+
+        } catch (error) {
+            Swal.fire({
+                title: "Error!",
+                text: "Claim was unsuccessful",
+                icon: "error",
+            });       
+        }
+    }
+
+    console.log(claim, "-----this is claim");
+    
+
     useEffect(() => {
         fetchClaim();
     }, []);
@@ -35,8 +63,10 @@ export default function ClaimTable() {
                             <th>Name</th>
                             <th>Date</th>
                             <th>UserId</th>
+                            <th>Email</th>
                             <th>ProductId</th>
                             <th>Image</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,6 +77,7 @@ export default function ClaimTable() {
                                     <th>{claim.Product.name}</th>
                                     <th>{claim.date}</th>
                                     <td>{claim.UserId}</td>
+                                    <td>{claim.User.email}</td>
                                     <td>{claim.ProductId}</td>
                                     <td>
                                         <div className="avatar">
@@ -54,6 +85,11 @@ export default function ClaimTable() {
                                                 <img src={claim.Product.image} />
                                             </div>
                                         </div>
+                                    </td>
+                                    <td>
+                                    <input type="submit" onClick={() =>
+                                            claimDone(claim.id)
+                                        } value="Done" className="btn" />
                                     </td>
 
                                 </tr>

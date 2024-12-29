@@ -42,7 +42,7 @@ export default function Login() {
             client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
             // callback function to handle the response
             callback: async (response) => {
-                console.log("Encoded JWT ID token: " + response.credential)
+                // console.log("Encoded JWT ID token: " + response.credential)
                 const { data } = await instanceAxios.post('/auth/google', {
                     googleToken: response.credential,
                 });

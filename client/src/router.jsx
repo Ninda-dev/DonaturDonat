@@ -8,6 +8,7 @@ import RootLayoutCms from "./layouts/RootLayoutCms";
 import CreateProduct from "./components/CreateProduct";
 import UserTable from "./components/UserTable";
 import DetailProduct from "./components/DetailProduct";
+import ClaimUser from "./components/ClaimUser";
 
 // Function to parse JWT to get the payload
 const parseJwt = (token) => {
@@ -48,8 +49,10 @@ const router = createBrowserRouter([
                 element: <Home />
             },
             {
-                path: "claim/:id",
-                element: <ClaimTable />
+                path: "claim",
+                element: <ClaimUser 
+                id = {parseJwt(localStorage.getItem("access_token")).id}
+                />
             },
             {
                 path: "detail",
@@ -102,7 +105,7 @@ const router = createBrowserRouter([
             {
                 path: "claim-product",
                 element: <ClaimTable />
-            }
+            },
         ]
     }
 ]);

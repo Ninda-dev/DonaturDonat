@@ -32,7 +32,7 @@ export default function RootLayout() {
                             </Link>
                         </li>
                         <li>
-                            <Link to={"/claim/:id"}>
+                            <Link to={"/claim"}>
                                 <i className="fa fa-sign-out-alt"></i>
                                 <span className="mx-4 font-medium">Claim</span>
                             </Link>
