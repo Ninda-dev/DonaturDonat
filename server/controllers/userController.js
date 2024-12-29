@@ -42,7 +42,8 @@ class UserController {
             }
 
             const payload = {
-                id: findUser.id
+                id: findUser.id,
+                role: findUser.role
             }
 
             const access_token = signToken(payload);
@@ -57,15 +58,14 @@ class UserController {
     static async googleLogin(req, res, next) {
         const { googleToken } = req.body;
         console.log(googleToken);
-        
+
         try {
             const ticket = await client.verifyIdToken({
                 idToken: googleToken,
                 audience: process.env.GOOGLE_CLIENT_ID,
-
             });
 
-            
+
             const payload = ticket.getPayload();
             const [user, created] = await User.findOrCreate({
                 where: { email: payload.email },
@@ -74,7 +74,7 @@ class UserController {
                     email: payload.email,
                     picture: payload.picture,
                     provider: 'google',
-                    password: 'google_id'
+                    password: process.env.DEFAULT_PASSWORD_GOOGLE
                 },
                 hooks: false
             });
@@ -87,6 +87,33 @@ class UserController {
         }
     }
 
+    static async getUser(req, res, next) {
+        try {
+            const users = await User.findAll();
+
+            res.status(200).json(users);
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    static async deleteUser(req, res, next) {
+        try {
+            const id = req.params.id;
+
+            const user = await User.findOne({ where: { id } });
+            await User.destroy({ where: { id } });
+
+            res.status(200).json(`user ${user.email} success deleted`);
+        } catch (error) {
+            if (error.name === 'SequelizeForeignKeyConstraintError') {
+                res.status(400).json('Cannot delete users who have product claims');
+            }
+            else {
+                next(error)
+            }
+        }
+    }
 }
 
 module.exports = UserController

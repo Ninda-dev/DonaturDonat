@@ -2,7 +2,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 
 
 export default function RootLayoutCms() {
-    
+
     const navigate = useNavigate();
 
     const handleLogout = async () => {
@@ -28,12 +28,20 @@ export default function RootLayoutCms() {
                     <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
                         {/* Sidebar content here */}
                         <li>
-                            <span className="ml-2 text-xl font-bold">DonaturDonat</span>
+                            <Link to={"/admin"}>
+                                <span className="ml-2 text-xl font-bold">DonaturDonat</span>
+                            </Link>
                         </li>
                         <li>
-                            <Link to="/user">
+                            <Link to="/admin/users">
                                 <i className="fas fa-box-open"></i>
                                 <span className="mx-4 font-medium">User</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/admin/products">
+                                <i className="fas fa-box-open"></i>
+                                <span className="mx-4 font-medium">Product</span>
                             </Link>
                         </li>
                         <li>
@@ -43,9 +51,9 @@ export default function RootLayoutCms() {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/product">
+                            <Link to="/admin/claim-product">
                                 <i className="fas fa-box-open"></i>
-                                <span className="mx-4 font-medium">Claim</span>
+                                <span className="mx-4 font-medium">Claim Product</span>
                             </Link>
                         </li>
                         <li>

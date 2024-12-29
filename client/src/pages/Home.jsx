@@ -37,17 +37,30 @@ export default function Home() {
 
     return (
         <>
+            <br />
+            <br />
+
             {/* Form AI */}
             <form action="" onSubmit={handleClick} className="flex flex-col gap-2" >
-                <label htmlFor="">Bosen nunggu product update ya ? tanyain sesuatu ke AI yukss</label>
+                <label htmlFor="">Bosen nunggu update product ya ? tanyain sesuatu ke AI yukss</label>
                 <label className="input input-bordered flex items-center gap-2">
                     <input type="text" className="grow" placeholder="ask something to AI" value={prompt} onChange={(e) => setPrompt(e.target.value)} />
                 </label>
                 <input type="submit" value="Submit" className="btn" />
             </form>
             <br />
+
+            {/* Answer AI */}
             <div className="bg-white p-4 rounded-lg shadow-md mx-28">
-                <p>{answerPrompt}</p>
+                {(!answerPrompt)
+                    ? // empty answer
+                    <div className="justify-items-center">
+                        <p>I'm waiting for you</p>
+                        <span className="items-center loading loading-dots loading-xs"></span>
+                    </div>
+                    : // filled answer
+                    <p>{answerPrompt}</p>
+                }
             </div>
 
             <br />
@@ -57,21 +70,21 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-8">
                 {/* <div className="grid"> */}
 
-                    {data.data?.map((product) => {
+                {data.data?.map((product) => {
 
-                        return (
-                            <Card
-                                key={product.id}
-                                product={{
-                                    id: product.id,
-                                    name: product.name,
-                                    description: product.description,
-                                    image: product.image,
-                                    stock: product.stock
-                                }}
-                            />
-                        )
-                    })}
+                    return (
+                        <Card
+                            key={product.id}
+                            product={{
+                                id: product.id,
+                                name: product.name,
+                                description: product.description,
+                                image: product.image,
+                                stock: product.stock
+                            }}
+                        />
+                    )
+                })}
 
                 {/* </div> */}
             </div>

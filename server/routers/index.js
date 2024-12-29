@@ -26,6 +26,11 @@ router.get('/products/:id', ProductController.getProductById)
 
 router.use(authorization)
 
+//User
+router.get('/users', UserController.getUser)
+router.delete('/user/:id', UserController.deleteUser)
+
+//Product
 router.post('/products', ProductController.createProduct)
 router.put('/products/:id', ProductController.updateProduct)
 router.delete('/products/:id', ProductController.deleteProduct)

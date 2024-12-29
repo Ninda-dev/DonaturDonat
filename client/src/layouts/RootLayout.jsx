@@ -27,18 +27,20 @@ export default function RootLayout() {
                     <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
                         {/* Sidebar content here */}
                         <li>
-                            <span className="ml-2 text-xl font-bold">DonaturDonat</span>
+                            <Link to={"/"}>
+                                <span className="ml-2 text-xl font-bold">Donat<span style={{ color: "#FF748B" }}>ur</span>Donat</span>
+                            </Link>
                         </li>
                         <li>
-                            <Link to="/claim/:id">
-                                <i className="fas fa-box-open"></i>
+                            <Link to={"/claim/:id"}>
+                                <i className="fa fa-sign-out-alt"></i>
                                 <span className="mx-4 font-medium">Claim</span>
                             </Link>
                         </li>
                         <li>
                             <Link to={"/"} onClick={handleLogout}
                             >
-                                <i className="fas fa-sign-out-alt"></i>
+                                <i className="fa fa-sign-out-alt"></i>
                                 <span className="mx-4 font-medium">Logout</span>
                             </Link>
                         </li>
