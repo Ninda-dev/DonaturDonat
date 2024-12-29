@@ -9,15 +9,13 @@ import CreateProduct from "./components/CreateProduct";
 import UserTable from "./components/UserTable";
 import DetailProduct from "./components/DetailProduct";
 import ClaimUser from "./components/ClaimUser";
+import {jwtDecode} from 'jwt-decode';
 
 // Function to parse JWT to get the payload
 const parseJwt = (token) => {
     try {
-        const base64Url = token.split('.')[1];
-        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        return JSON.parse(window.atob(base64));
-    } catch (error) {
-        console.error("Invalid token", error);
+        return jwtDecode(token);
+    } catch (e) {
         return null;
     }
 };
@@ -31,9 +29,9 @@ const router = createBrowserRouter([
             // console.log(access_token, "<<<<<<<access token client");
             if (access_token) {
                 // Decode the token to get the payload
-                const decodedToken = parseJwt(access_token);
-                const role = decodedToken.role; // For get role from payload
-                // console.log(role, "<<<<<<<role client");
+                const payloadToken = parseJwt(access_token);
+                const role = payloadToken.role; // For get role from payload
+                // console.log(payloadToken, "<<<<<<<payload");
                 
                 if (role !== "Admin") {
                     return null;
@@ -50,9 +48,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "claim",
-                element: <ClaimUser 
-                id = {parseJwt(localStorage.getItem("access_token")).id}
-                />
+                element: <ClaimUser />
             },
             {
                 path: "detail",

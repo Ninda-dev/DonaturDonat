@@ -71,7 +71,7 @@ export default function Login() {
                 <h1 className="text-3xl font-bold mb-4">Login</h1>
                 <p className="mb-8">Log in to claim your donuts..</p>
                 <div className="flex">
-                    <div className="w-1/2 ">
+                    <div className="w-1/2 mt-5">
                         <img
                             alt="Valentine Donut"
                             className="rounded-lg shadow-md"
@@ -124,17 +124,18 @@ export default function Login() {
                             Sign in with Google
                         </button>
 
-                        {/* <div id="buttonDiv"></div> */}
-
-                        <p className="text-sm font-light text-brown-400">
-                            No Account?{" "}
-                            <a
-                                href="/register"
-                                className="font-medium text-[977458ff] hover:text-[#ffffff]"
-                            >
-                                Register here
-                            </a>
-                        </p>
+                        {/* Register */}
+                        <div className="mt-3">
+                            <p className="text-sm font-light text-brown-400">
+                                No Account?{" "}
+                                <a
+                                    href="/register"
+                                    className="font-medium text-[977458ff] hover:text-[#ffffff] hover:bg-[#ECB1C0] hover:rounded-sm"
+                                >
+                                    Register here
+                                </a>
+                            </p>
+                        </div>
 
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, redirect, useNavigate } from "react-router-dom";
 
 
 export default function RootLayout() {
@@ -6,6 +6,7 @@ export default function RootLayout() {
 
     const handleLogout = async () => {
         try {
+            navigate("/");
             localStorage.removeItem("access_token");
             navigate("/login");
 
@@ -38,7 +39,7 @@ export default function RootLayout() {
                             </Link>
                         </li>
                         <li>
-                            <Link to={"/"} onClick={handleLogout}
+                            <Link onClick={handleLogout}
                             >
                                 <i className="fa fa-sign-out-alt"></i>
                                 <span className="mx-4 font-medium">Logout</span>

@@ -7,9 +7,9 @@ export default function RootLayoutCms() {
 
     const handleLogout = async () => {
         try {
+            navigate("/admin-products"); //redirect to admin-product before remove access token because page which need access token will show notification failed to load data if access token removed first
             localStorage.removeItem("access_token");
             navigate("/login");
-
         } catch (error) {
             console.log(error);
         }
@@ -63,7 +63,7 @@ export default function RootLayoutCms() {
                             </Link>
                         </li>
                         <li>
-                            <Link to={"/"} onClick={handleLogout}
+                            <Link onClick={handleLogout}
                             >
                                 <i className="fas fa-sign-out-alt"></i>
                                 <span className="mx-4 font-medium">Logout</span>
