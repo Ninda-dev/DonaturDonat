@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { instanceAxios } from "../axiosClient";
 import Swal from 'sweetalert2';
-import CreateProduct from "../components/CreateProduct";
+import EditProduct from "../components/EditProduct";
+import { Navigate } from "react-router-dom";
 
 export default function Cms() {
     const [product, setProduct] = useState([])
@@ -14,60 +15,35 @@ export default function Cms() {
             });
 
             setProduct(data.data);
-            // console.log(claim, "------");
-
 
         } catch (error) {
+
             Swal.fire({
                 title: "Error!",
                 text: "Failed to show product",
                 icon: "error",
             });
+
         }
     }
 
-    const handleEdit = async (id) => {
-        console.log(id, "------");
-        const { data } = await instanceAxios.get(`/products/${id}`, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("access_token")}`
-            }
-        });
+    //for edit product
+    const [editingProduct, setEditingProduct] = useState(null);
 
-        console.log(data, "------");    
-        setProduct(data);   
+    const [click, setClick] = useState(false);
 
+    const handleEdit = (product) => {
+        setEditingProduct(product);
+        setClick(true);
+    };
 
-    }
+    const handleEditSuccess = () => {
+        fetchProduct();
+        setClick(false);
+        Navigate('/admin/user-view');
+    };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            await instanceAxios.post(`/products`, {
-                name: e.target.name.value,
-                description: e.target.description.value,
-                image: e.target.image.value,
-                stock: e.target.stock.value,
-            }, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("access_token")}`
-                }
-            });
-            fetchProduct();
-            Swal.fire({
-                title: "Success!",
-                text: "Added product successfully",
-                icon: "success",
-            });
-        } catch (error) {
-            Swal.fire({
-                title: "Error!",
-                text: `Failed to add product ${error}`,
-                icon: "error",
-            });
-        }
-    }
-
+    //for delete product
     const handleDelete = async (id) => {
         try {
             await instanceAxios.delete(`/products/${id}`, {
@@ -128,9 +104,17 @@ export default function Cms() {
                                     </td>
                                     <td>{product.stock}</td>
                                     <td>
-                                        <input type="submit" onClick={() =>
-                                            handleEdit(product.id)
-                                        } value="Edit" className="btn" />
+
+                                        <input type="submit"
+                                            onClick={() => handleEdit(product)}
+                                            value="Edit" className="btn" />
+                                        {(click && editingProduct && editingProduct.id === product.id)
+                                            ?
+                                             <EditProduct product={editingProduct} onEditSuccess={handleEditSuccess} />
+                                            :
+                                            null
+                                        }
+
                                         <input type="submit" onClick={() =>
                                             handleDelete(product.id)
                                         } value="Delete" className="btn" />

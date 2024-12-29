@@ -35,7 +35,13 @@ export default function RootLayoutCms() {
                         <li>
                             <Link to="/admin/users">
                                 <i className="fas fa-box-open"></i>
-                                <span className="mx-4 font-medium">User</span>
+                                <span className="mx-4 font-medium">User List</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/admin/user-view">
+                                <i className="fas fa-box-open"></i>
+                                <span className="mx-4 font-medium">User View</span>
                             </Link>
                         </li>
                         <li>

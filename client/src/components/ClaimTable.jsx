@@ -25,6 +25,7 @@ export default function ClaimTable() {
 
     return (
         <>
+            <h1 className="text-2xl font-semibold text-gray-800">Claim Product List</h1>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

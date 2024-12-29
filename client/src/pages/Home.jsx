@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import Card from "../components/Card";
-import { fetchProducts, fetchDetailProduct } from "../features/productSlice";
+import { fetchProducts } from "../features/productSlice";
 import { instanceAxios } from "../axiosClient";
 
 export default function Home() {
     const [prompt, setPrompt] = useState("");
     const [answerPrompt, setAnswerPrompt] = useState("");
 
-    const { data, detail } = useSelector((state) => state.product);
+    const { data } = useSelector((state) => state.product);
     // console.log(data, "=======ini state");
 
     const dispatch = useDispatch()

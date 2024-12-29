@@ -26,12 +26,12 @@ const router = createBrowserRouter([
         element: <RootLayout />,
         loader: () => {
             const access_token = localStorage.getItem("access_token");
-            console.log(access_token, "<<<<<<<access token client");
+            // console.log(access_token, "<<<<<<<access token client");
             if (access_token) {
                 // Decode the token to get the payload
                 const decodedToken = parseJwt(access_token);
                 const role = decodedToken.role; // For get role from payload
-                console.log(role, "<<<<<<<role client");
+                // console.log(role, "<<<<<<<role client");
                 
                 if (role !== "Admin") {
                     return null;
@@ -81,6 +81,10 @@ const router = createBrowserRouter([
             {
                 path: "users",
                 element: <UserTable />
+            },
+            {
+                path: "user-view",
+                element: <Home />
             },
             {
                 path: "products",

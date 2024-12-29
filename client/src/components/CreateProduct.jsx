@@ -44,6 +44,7 @@ export default function CreateProduct() {
     };
 
     return <>
+        <h1 className="text-2xl font-semibold text-gray-800">Create Product</h1>
         <form action="" onSubmit={handleSubmit} className="flex flex-col gap-2" >
             <label className="input input-bordered flex items-center gap-2">
                 Name

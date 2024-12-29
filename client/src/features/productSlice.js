@@ -26,7 +26,7 @@ export const fetchProducts = () => {
                 Authorization: `Bearer ${localStorage.getItem("access_token")}`
             }
         });
-        console.log(data, "======= ini data fetch nya");
+        // console.log(data, "======= ini data fetch nya");
         
         dispatch(setProducts(data));
     };
