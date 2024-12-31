@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import Card from "../components/Card";
 import { fetchProducts } from "../features/productSlice";
 import { instanceAxios } from "../axiosClient";
+import Card from "../components/Card";
 
 export default function Home() {
     const [prompt, setPrompt] = useState("");
@@ -27,13 +27,8 @@ export default function Home() {
     }
 
     useEffect(() => {
-        // console.log('======masuk useEffect');
-
         dispatch(fetchProducts())
     }, []);
-
-    // console.log(answerPrompt, "-=-----ansprom");
-
 
     return (
         <>
@@ -53,12 +48,12 @@ export default function Home() {
             {/* Answer AI */}
             <div className="bg-white p-4 rounded-lg shadow-md mx-28">
                 {(!answerPrompt)
-                    ? // empty answer
+                    ? // if empty answer
                     <div className="justify-items-center">
                         <p>I'm waiting for you</p>
                         <span className="items-center loading loading-dots loading-xs"></span>
                     </div>
-                    : // filled answer
+                    : // if filled answer
                     <p>{answerPrompt}</p>
                 }
             </div>
@@ -68,7 +63,6 @@ export default function Home() {
 
             {/* Card Product */}
             <div className="grid grid-cols-2 gap-8">
-                {/* <div className="grid"> */}
 
                 {data.data?.map((product) => {
 
@@ -86,7 +80,6 @@ export default function Home() {
                     )
                 })}
 
-                {/* </div> */}
             </div>
 
 
