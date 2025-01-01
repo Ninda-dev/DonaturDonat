@@ -2,17 +2,12 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { instanceAxios } from "../axiosClient";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchClaims } from "../features/claimSlice";
-import { fetchDetailProduct } from "../features/productSlice";
-import { use, useEffect } from "react";
-
 
 export default function Card({ product }) {
 
     const dispatch = useDispatch();
-
-    const { detail } = useSelector((state) => state.product);
 
     const createClaim = async (e) => {
         e.preventDefault();
@@ -30,13 +25,16 @@ export default function Card({ product }) {
 
             dispatch(fetchClaims());
 
+            // console.log(product.id, "<<<<<<<<<<<<ini product id");
+            
             // get product by id to get stock
+            const {productById} = await instanceAxios.get(`products/${product.id}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("access_token")}`
+                }
+            });
 
-            dispatch(fetchDetailProduct(product.id));
-
-            const productById = detail;
-
-            console.log(productById.stock, "<<<<<<<<<<<<ini product detail");
+            console.log(productById, "<<<<<<<<<<<<ini product detail");
 
             // for update stock product until claimed
             // await instanceAxios.put(`products/${product.id}`,
@@ -71,6 +69,8 @@ export default function Card({ product }) {
         }
     }
 
+    
+
     return (
         <>
             <div className="grid card bg-base-100 w-96 shadow-xl mb-10">
@@ -87,7 +87,7 @@ export default function Card({ product }) {
                     <p>Stock : {product.stock}</p>
                     <div className="button-container card-actions justify-end">
                         <div className="button claim badge badge-outline bg-[#560F20] text-white hover:animate-pulse">
-                            <Link onClick={createClaim} >
+                            <Link to={`products/${product.id}`} onClick={createClaim}>
                                 Claim
                             </Link>
                         </div>

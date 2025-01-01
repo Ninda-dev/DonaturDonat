@@ -10,6 +10,9 @@
 *.userosscache
 *.sln.docstates
 
+##My Notes : fix note
+FixIt.txt
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

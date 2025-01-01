@@ -51,7 +51,7 @@ const router = createBrowserRouter([
                 element: <ClaimUser />
             },
             {
-                path: "detail",
+                path: "detail/:id",
                 element: <DetailProduct />
             }
         ]
@@ -89,6 +89,10 @@ const router = createBrowserRouter([
             {
                 path: "user-view",
                 element: <Home />
+            },
+            {
+                path: "detail/:id",
+                element: <DetailProduct />
             },
             {
                 path: "products",
