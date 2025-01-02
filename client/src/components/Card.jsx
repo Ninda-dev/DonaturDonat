@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { instanceAxios } from "../axiosClient";
 import { useDispatch } from "react-redux";
 import { fetchClaims } from "../features/claimSlice";
+import { use } from "react";
+import { fetchProducts } from "../features/productSlice";
 
 export default function Card({ product }) {
 
@@ -12,7 +14,7 @@ export default function Card({ product }) {
     const createClaim = async (e) => {
         e.preventDefault();
         try {
-            await instanceAxios.post(`/claims/${product.id}`,
+            const addClaim = await instanceAxios.post(`/claims/${product.id}`,
                 {
                     id: product.id
                 },
@@ -23,33 +25,48 @@ export default function Card({ product }) {
                 }
             );
 
+            console.log(addClaim, "<<<<<<<<<<<<ini add claim");
+
             dispatch(fetchClaims());
 
             // console.log(product.id, "<<<<<<<<<<<<ini product id");
-            
+
             // get product by id to get stock
-            const {productById} = await instanceAxios.get(`products/${product.id}`, {
+            const productId = product.id;
+            console.log(productId, "<<<<<<<<<<<<==========ini product id");
+
+            const productById = await instanceAxios.get(`products/${productId}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("access_token")}`
                 }
             });
 
-            console.log(productById, "<<<<<<<<<<<<ini product detail");
+            // console.log(productById, "<<<<<<<<<<<<ini product detail");
+            
+            if (productById) {
+                
+                let stock = productById.data.data[0].stock;
+                
+                let newStock = stock - 1;
+                // console.log(stock, "<<<<<<<<<<<<ini stock baru");
 
-            // for update stock product until claimed
-            // await instanceAxios.put(`products/${product.id}`,
-            //     {
-            //         name: productById.data.name,
-            //         description: productById.data.description,
-            //         image: productById.data.image,
-            //         stock: productById.data.stock - 1
-            //     },
-            //     {
-            //         headers: {
-            //             Authorization: `Bearer ${localStorage.getItem("access_token")}`
-            //         }
-            //     }
-            // );
+                // for update stock product until claimed
+                await instanceAxios.put(`products/${productId}`,
+                    {
+                        name: productById.data.name,
+                        description: productById.data.description,
+                        image: productById.data.image,
+                        stock: newStock
+                    },
+                    {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem("access_token")}`
+                        }
+                    }
+                );
+
+                dispatch(fetchProducts());
+            }
 
             // delete product if stock is 0
             // await instanceAxios.get(`products/${product.id}`, {)
@@ -69,7 +86,7 @@ export default function Card({ product }) {
         }
     }
 
-    
+
 
     return (
         <>

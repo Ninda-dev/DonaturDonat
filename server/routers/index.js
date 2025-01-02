@@ -26,7 +26,7 @@ router.delete('/claims/:id', ClaimController.doneClaim)
 router.get('/products', ProductController.getAllProduct)
 router.get('/products/:id', ProductController.getProductById)
 
-router.use(authorization)
+// router.use(authorization)
 
 //User
 router.get('/users', UserController.getUser)
