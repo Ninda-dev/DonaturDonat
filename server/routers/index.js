@@ -20,22 +20,23 @@ router.use(authentication)
 //Claim (conjunction)
 router.get('/claims', ClaimController.getClaim)
 router.get('/claims/:id', ClaimController.getClaimByUserId)
+router.get('/claims/product/:id', ClaimController.getClaimByProductId)
 router.post('/claims/:id', ClaimController.createClaim)
-router.delete('/claims/:id', ClaimController.doneClaim)
+router.delete('/claims/:id', authorization, ClaimController.doneClaim)
 
+//Product
 router.get('/products', ProductController.getAllProduct)
 router.get('/products/:id', ProductController.getProductById)
 
-// router.use(authorization)
+router.put('/products/:id', ProductController.updateProduct)
+router.delete('/products/:id', ProductController.deleteProduct)
+
+router.use(authorization)
+router.post('/products', ProductController.createProduct)
 
 //User
 router.get('/users', UserController.getUser)
 router.delete('/user/:id', UserController.deleteUser)
-
-//Product
-router.post('/products', ProductController.createProduct)
-router.put('/products/:id', ProductController.updateProduct)
-router.delete('/products/:id', ProductController.deleteProduct)
 
 router.use(errorHandler);
 

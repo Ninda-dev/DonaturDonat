@@ -38,6 +38,26 @@ class ClaimController {
         }
     }
 
+    static async getClaimByProductId(req, res, next) {
+        try {
+            let { id } = req.params;
+            let data = await Claim.findAll({
+                where: {
+                    ProductId: id
+                },
+                include: [
+                    { model: Product },
+                    { model: User }
+                ]
+            });
+
+            res.status(200);
+            res.json({ data });
+        } catch (error) {
+            next(error)
+        }
+    }
+
     static async createClaim(req, res, next) {
         try {
             let { id } = req.params;

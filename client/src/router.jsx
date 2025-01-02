@@ -72,7 +72,8 @@ const router = createBrowserRouter([
         element: <RootLayoutCms />,
         loader: () => {
             const access_token = localStorage.getItem("access_token");
-            if (access_token) {
+            // to check access token and role to ensure only admin can access this path
+            if (access_token && parseJwt(access_token).role === "Admin") {
                 return null;
             }
             throw redirect("/login");

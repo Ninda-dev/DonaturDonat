@@ -42,16 +42,16 @@ export default function Card({ product }) {
             });
 
             // console.log(productById, "<<<<<<<<<<<<ini product detail");
-            
+
             if (productById) {
-                
+
                 let stock = productById.data.data[0].stock;
-                
+
                 let newStock = stock - 1;
                 // console.log(stock, "<<<<<<<<<<<<ini stock baru");
 
                 // for update stock product until claimed
-                await instanceAxios.put(`products/${productId}`,
+                const productUpdate = await instanceAxios.put(`products/${productId}`,
                     {
                         name: productById.data.name,
                         description: productById.data.description,
@@ -66,10 +66,31 @@ export default function Card({ product }) {
                 );
 
                 dispatch(fetchProducts());
-            }
 
-            // delete product if stock is 0
-            // await instanceAxios.get(`products/${product.id}`, {)
+                console.log(productUpdate, "<<<<<<<<<<<<ini product update");
+
+                if (productUpdate.status === 200 && newStock === 0) {
+
+                    const claimStatus = await instanceAxios.get(`claims/product/${productId}`, {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem("access_token")}`
+                        }
+                    });
+
+                    if (claimStatus.data.data.length === 0) {
+                        // delete product if stock is 0
+                        await instanceAxios.delete(`products/${productId}`, {
+                            headers: {
+                                Authorization: `Bearer ${localStorage.getItem("access_token")}`
+                            }
+                        });
+
+                        dispatch(fetchProducts());
+                    }
+
+                    dispatch(fetchProducts());
+                }
+            }
 
             Swal.fire({
                 title: "Success!",
@@ -86,36 +107,73 @@ export default function Card({ product }) {
         }
     }
 
-
+    const outOfStock = async (e) => {
+        e.preventDefault();
+        Swal.fire({
+            title: "Out of Stock",
+            text: "Sorry this product is out of stock, please check another product",
+            icon: "info",
+        });
+    }
 
     return (
         <>
-            <div className="grid card bg-base-100 w-96 shadow-xl mb-10">
-                <figure className="h-80">
-                    <img
-                        src={product.image}
-                        alt="donut" />
-                </figure>
-                <div className="card-body">
-                    <h2 className="card-title">
-                        {product.name}
-                        <div className="badge">NEW</div>
-                    </h2>
-                    <p>Stock : {product.stock}</p>
-                    <div className="button-container card-actions justify-end">
-                        <div className="button claim badge badge-outline bg-[#560F20] text-white hover:animate-pulse">
-                            <Link to={`products/${product.id}`} onClick={createClaim}>
-                                Claim
-                            </Link>
-                        </div>
-                        <div className="button detail badge badge-outline hover:bg-[#560F20] hover:text-white">
-                            <Link to={`/detail/${product.id}`} >
-                                Detail
-                            </Link>
+            {(product.stock !== 0)
+                ?
+                < div className="grid card bg-base-100 w-96 shadow-xl mb-10">
+                    <figure className="h-80">
+                        <img
+                            src={product.image}
+                            alt="donut" />
+                    </figure>
+                    <div className="card-body">
+                        <h2 className="card-title">
+                            {product.name}
+                            <div className="badge">NEW</div>
+                        </h2>
+                        <p>Stock : {product.stock}</p>
+                        <div className="button-container card-actions justify-end">
+                            <div className="button claim badge badge-outline bg-[#560F20] text-white hover:animate-pulse">
+                                <Link to={`products/${product.id}`} onClick={createClaim}>
+                                    Claim
+                                </Link>
+                            </div>
+                            <div className="button detail badge badge-outline hover:bg-[#560F20] hover:text-white">
+                                <Link to={`/detail/${product.id}`} >
+                                    Detail
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div >
+                </div >
+                :
+                < div className="grid card bg-base-100 w-96 shadow-xl mb-10">
+                    <figure className="h-80">
+                        <img
+                            src={product.image}
+                            alt="donut" />
+                    </figure>
+                    <div className="card-body">
+                        <h2 className="card-title">
+                            {product.name}
+                            <div className="badge">NEW</div>
+                        </h2>
+                        <p>Stock : {product.stock}</p>
+                        <div className="button-container card-actions justify-end">
+                            <div className="button claim badge badge-outline bg-[#560F20] text-white hover:animate-pulse">
+                                <Link to={`#`} onClick={outOfStock}>
+                                    Out of Stock
+                                </Link>
+                            </div>
+                            <div className="button detail badge badge-outline hover:bg-[#560F20] hover:text-white">
+                                <Link to={`/detail/${product.id}`} >
+                                    Detail
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div >
+            }
         </>
     )
 }
