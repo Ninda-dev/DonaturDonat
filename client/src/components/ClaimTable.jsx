@@ -44,12 +44,18 @@ export default function ClaimTable() {
         }
     }
 
-    console.log(claim, "-----this is claim");
+    // console.log(claim, "-----this is claim");
     
 
     useEffect(() => {
         fetchClaim();
     }, []);
+
+    const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    };
 
     return (
         <>
@@ -75,7 +81,8 @@ export default function ClaimTable() {
                                 <tr key={claim.id}>
                                     <th>{idx + 1}</th>
                                     <th>{claim.Product.name}</th>
-                                    <th>{claim.date}</th>
+                                    {/* format date to local date */}
+                                    <th>{new Date(claim.date).toLocaleDateString("id-ID", options)}</th> 
                                     <td>{claim.UserId}</td>
                                     <td>{claim.User.email}</td>
                                     <td>{claim.ProductId}</td>
