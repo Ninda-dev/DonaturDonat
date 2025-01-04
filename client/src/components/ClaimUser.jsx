@@ -8,7 +8,7 @@ export default function ClaimUser() {
         try {
             const token = localStorage.getItem("access_token");
             const payload = jwtDecode(token);
-            console.log(payload, "<<<<<<<<<payload");
+            // console.log(payload, "<<<<<<<<<payload");
 
             const { data } = await instanceAxios.get(`/claims/${payload.id}`, {
                 headers: {
@@ -25,12 +25,18 @@ export default function ClaimUser() {
         }
     }
 
-    console.log(claim, "-----this is claim");
+    // console.log(claim, "-----this is claim");
 
 
     useEffect(() => {
         fetchClaim();
     }, []);
+
+    const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    };
 
     return (
         <>
@@ -55,7 +61,7 @@ export default function ClaimUser() {
                                 <tr key={claim.id}>
                                     <th>{idx + 1}</th>
                                     <th>{claim.Product.name}</th>
-                                    <th>{claim.date}</th>
+                                    <th>{new Date(claim.date).toLocaleDateString("id-ID", options)}</th>
                                     <td>{claim.UserId}</td>
                                     <td>{claim.User.email}</td>
                                     <td>{claim.ProductId}</td>

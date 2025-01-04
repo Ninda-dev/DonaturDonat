@@ -10,6 +10,7 @@ import UserTable from "./components/UserTable";
 import DetailProduct from "./components/DetailProduct";
 import ClaimUser from "./components/ClaimUser";
 import {jwtDecode} from 'jwt-decode';
+import Maps from "./components/Maps";
 
 // Function to parse JWT to get the payload
 const parseJwt = (token) => {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
             {
                 path: "detail/:id",
                 element: <DetailProduct />
+            },
+            {
+                path: "location",
+                element: <Maps />
             }
         ]
     },

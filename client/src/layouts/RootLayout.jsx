@@ -39,6 +39,12 @@ export default function RootLayout() {
                             </Link>
                         </li>
                         <li>
+                            <Link to={"/location"}>
+                                <i className="fa fa-sign-out-alt"></i>
+                                <span className="mx-4 font-medium">Find Us</span>
+                            </Link>
+                        </li>
+                        <li>
                             <Link onClick={handleLogout}
                             >
                                 <i className="fa fa-sign-out-alt"></i>
