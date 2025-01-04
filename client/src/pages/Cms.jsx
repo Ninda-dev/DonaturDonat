@@ -79,10 +79,10 @@ export default function Cms() {
                 <table className="table">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className="text-center">
                             <th>No</th>
-                            <th>Name</th>
-                            <th>Description</th>
+                            <th className="text-left">Name</th>
+                            <th className="text-left">Description</th>
                             <th>Image</th>
                             <th>Stock</th>
                             <th>Action</th>

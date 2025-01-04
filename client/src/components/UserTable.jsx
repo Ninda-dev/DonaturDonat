@@ -71,8 +71,8 @@ export default function UserTable() {
                             <th>No</th>
                             <th>Id</th>
                             <th>Email</th>
-                            <th>Role</th>
-                            <th>Action</th>
+                            <th className="text-center">Role</th>
+                            <th className="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>

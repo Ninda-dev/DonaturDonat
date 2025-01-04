@@ -1,4 +1,6 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSquarePlus, faBoxOpen, faPenToSquare, faUser } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function RootLayoutCms() {
@@ -34,39 +36,62 @@ export default function RootLayoutCms() {
                         </li>
                         <li>
                             <Link to="/admin/users">
-                                <i className="fas fa-box-open"></i>
-                                <span className="mx-4 font-medium">User List</span>
+                                <div className="flex items-left pl-2 gap-4">
+                                    <div className="w-6 ml-1 items-left">
+                                        <FontAwesomeIcon icon={faUser} />
+                                    </div>
+                                    <span className="font-medium">User List</span>
+                                </div>
                             </Link>
                         </li>
                         <li>
                             <Link to="/admin/user-view">
-                                <i className="fas fa-box-open"></i>
-                                <span className="mx-4 font-medium">User View</span>
+                                <div className="flex items-left pl-2 gap-4">
+                                    <div className="w-6 ml-1 items-left">
+                                        <i className="fa fa-eye"></i>
+                                    </div>
+                                    <span className="font-medium">User View</span>
+                                </div>
                             </Link>
                         </li>
                         <li>
                             <Link to="/admin/products">
-                                <i className="fas fa-box-open"></i>
-                                <span className="mx-4 font-medium">Product</span>
+                                <div className="flex items-left pl-2 gap-4">
+                                    <div className="w-6 ml-1 items-left">
+                                        <FontAwesomeIcon icon={faBoxOpen} />
+                                    </div>
+                                    <span className="font-medium">Product</span>
+                                </div>
                             </Link>
                         </li>
                         <li>
                             <Link to="/admin/create-product">
-                                <i className="fas fa-box-open"></i>
-                                <span className="mx-4 font-medium">Create Product</span>
+                                <div className="flex items-left pl-2 gap-4">
+                                    <div className="w-6 ml-1 items-left">
+                                        <FontAwesomeIcon icon={faSquarePlus} />
+                                    </div>
+                                    <span className="font-medium">Create Product</span>
+                                </div>
                             </Link>
                         </li>
                         <li>
                             <Link to="/admin/claim-product">
-                                <i className="fas fa-box-open"></i>
-                                <span className="mx-4 font-medium">Claim Product</span>
+                                <div className="flex items-left pl-2 gap-4">
+                                    <div className="w-6 ml-1 items-left">
+                                        <FontAwesomeIcon icon={faPenToSquare} />
+                                    </div>
+                                    <span className="font-medium">Claim Product</span>
+                                </div>
                             </Link>
                         </li>
                         <li>
-                            <Link onClick={handleLogout}
-                            >
-                                <i className="fas fa-sign-out-alt"></i>
-                                <span className="mx-4 font-medium">Logout</span>
+                            <Link onClick={handleLogout}>
+                                <div className="flex items-left pl-2 gap-4">
+                                    <div className="w-6 ml-1 items-left">
+                                        <i className="fa fa-sign-out-alt"></i>
+                                    </div>
+                                    <span className="font-medium">Logout</span>
+                                </div>
                             </Link>
                         </li>
                     </ul>

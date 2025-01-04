@@ -68,11 +68,11 @@ export default function ClaimTable() {
                             <th>No</th>
                             <th>Name</th>
                             <th>Date</th>
-                            <th>UserId</th>
+                            <th className="text-center">UserId</th>
                             <th>Email</th>
-                            <th>ProductId</th>
-                            <th>Image</th>
-                            <th>Action</th>
+                            <th className="text-center">ProductId</th>
+                            <th className="text-center">Image</th>
+                            <th className="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -83,9 +83,9 @@ export default function ClaimTable() {
                                     <th>{claim.Product.name}</th>
                                     {/* format date to local date */}
                                     <th>{new Date(claim.date).toLocaleDateString("id-ID", options)}</th> 
-                                    <td>{claim.UserId}</td>
+                                    <td className="text-center">{claim.UserId}</td>
                                     <td>{claim.User.email}</td>
-                                    <td>{claim.ProductId}</td>
+                                    <td className="text-center">{claim.ProductId}</td>
                                     <td>
                                         <div className="avatar">
                                             <div className="mask mask-squircle w-24">

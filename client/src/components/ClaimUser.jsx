@@ -52,7 +52,7 @@ export default function ClaimUser() {
                             <th>UserId</th>
                             <th>Email</th>
                             <th>ProductId</th>
-                            <th>Image</th>
+                            <th className="text-center">Image</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,9 +62,9 @@ export default function ClaimUser() {
                                     <th>{idx + 1}</th>
                                     <th>{claim.Product.name}</th>
                                     <th>{new Date(claim.date).toLocaleDateString("id-ID", options)}</th>
-                                    <td>{claim.UserId}</td>
+                                    <td className="text-center">{claim.UserId}</td>
                                     <td>{claim.User.email}</td>
-                                    <td>{claim.ProductId}</td>
+                                    <td className="text-center">{claim.ProductId}</td>
                                     <td>
                                         <div className="avatar">
                                             <div className="mask mask-squircle w-24">

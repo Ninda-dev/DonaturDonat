@@ -1,5 +1,6 @@
 import { Link, Outlet, redirect, useNavigate } from "react-router-dom";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationDot, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 export default function RootLayout() {
     const navigate = useNavigate();
@@ -34,20 +35,20 @@ export default function RootLayout() {
                         </li>
                         <li>
                             <Link to={"/claim"}>
-                                <i className="fa fa-sign-out-alt"></i>
+                                <FontAwesomeIcon className="ml-2" icon={faPenToSquare} />
                                 <span className="mx-4 font-medium">Claim</span>
                             </Link>
                         </li>
                         <li>
                             <Link to={"/location"}>
-                                <i className="fa fa-sign-out-alt"></i>
-                                <span className="mx-4 font-medium">Find Us</span>
+                                <FontAwesomeIcon className="ml-2" icon={faLocationDot} />
+                                <span className="ml-5 mx-4 font-medium">Find Us</span>
                             </Link>
                         </li>
                         <li>
                             <Link onClick={handleLogout}
                             >
-                                <i className="fa fa-sign-out-alt"></i>
+                                <i className="ml-2 fa fa-sign-out-alt"></i>
                                 <span className="mx-4 font-medium">Logout</span>
                             </Link>
                         </li>

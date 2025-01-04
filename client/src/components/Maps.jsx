@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 
 export default function Maps() {
+    const lat = -6.261705;
+    const lng = 106.782802;
 
     useEffect(() => {
         // Step 1: initialize communication with the platform
@@ -14,7 +16,7 @@ export default function Maps() {
             document.getElementById('mapContainer'),
             defaultLayers.vector.normal.map,
             {
-                center: { lat: -6.261705, lng: 106.782802 }, // Update coordinates here
+                center: { lat: lat, lng: lng }, // Update coordinates here
                 zoom: 14,
                 pixelRatio: window.devicePixelRatio || 1
             }
@@ -30,7 +32,7 @@ export default function Maps() {
         const ui = H.ui.UI.createDefault(map, defaultLayers);
 
         // Marker code goes here
-        const LocationOfMarker = { lat: -6.261705, lng: 106.782802 }; // Update coordinates here
+        const LocationOfMarker = { lat, lng }; // Update coordinates here
 
         // Optionally - resize a larger PNG image to a specific size
         const pngIcon = new H.map.Icon("./image/bitDonut.png", { size: { w: 56, h: 56 } });
@@ -55,7 +57,7 @@ export default function Maps() {
     }, []);
 
     const shareLocation = () => {
-        const message = `Check out this location: https://maps.google.com/?q=${location.lat},${location.lng}`;
+        const message = `Here we go, take your donut in this location : https://maps.google.com/?q=${lat},${lng}`;
         const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
     };
@@ -73,14 +75,20 @@ export default function Maps() {
                     top: '10px',
                     right: '10px',
                     padding: '10px 20px',
-                    backgroundColor: '#25D366',
+                    backgroundColor: '#C75C71',
                     color: 'white',
                     border: 'none',
-                    borderRadius: '5px',
-                    cursor: 'pointer'
+                    borderRadius: '20px',
+                    cursor: 'pointer',
+                    fontWeight: 'bold'
                 }}
             >
-                Share Location to <img src="./image/WA.png" alt="WhatsApp" />
+                <div className="flex flex-row items-center">
+                    <p className="text-bold">
+                        Share Location to
+                    </p>
+                    <img className="w-10" src="./image/WA.png" alt="WhatsApp" />
+                </div>
             </button>
         </>
     )
