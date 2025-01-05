@@ -13,19 +13,24 @@ export default function Register() {
             e.preventDefault();
 
             let response = await instanceAxios.post(
-                "/login",
+                "/register",
                 {
                     email,
                     password,
                 }
             );
-
             // console.log(response, "----------");
 
-            localStorage.setItem("access_token", response.data.access_token);
-            // console.log("masuk ga nih#############");
+            if (response.status === 201) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: response.data,
+                });
+            }
+            
 
-            navigate('/');
+            navigate('/login');
         } catch (error) {
             Swal.fire({
                 icon: "error",
