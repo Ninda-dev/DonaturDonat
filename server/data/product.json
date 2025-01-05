@@ -2,19 +2,19 @@
     {
       "name": "Donat Gula",
       "description": "dibalut gula yang lembut",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN4sJOUtJWBG-hixFU5xlHuXyX4aMu57iDBg&s",
+      "image": "https://i.pinimg.com/564x/3e/fa/36/3efa361cdf542f8cdd2af565676144f5.jpg",
       "stock": 4
     },
     {
       "name": "Donat Coklat",
       "description": "dengan topping coklat lumer",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-g3ef_jebLET40bYBJZMb2dAAMq2y1nfvog&s",
+      "image": "https://i.pinimg.com/564x/cc/4e/ec/cc4eecd1f05f2f17a3392a8f9b4ace12.jpg",
       "stock": 10
     },
     {
       "name": "Donat Kacang",
       "description": "taburan kacang yang renyah",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIrp7bIUXiCClpMMDFyS3KXR-oqYFuypF91w&s",
+      "image": "https://i.pinimg.com/564x/2f/10/4c/2f104ce77c07a7f01142126f6c4ee06e.jpg",
       "stock": 7
     },
     {
@@ -26,37 +26,31 @@
     {
       "name": "Donat Keju",
       "description": "dengan taburan keju parut",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-g3ef_jebLET40bYBJZMb2dAAMq2y1nfvog&s",
+      "image": "https://i.pinimg.com/736x/7e/d2/ac/7ed2acd603a4b5cc80c4e8d0b32a085c.jpg",
       "stock": 3
     },
     {
-      "name": "Donat Blueberry",
-      "description": "dengan blueberry segar",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN4sJOUtJWBG-hixFU5xlHuXyX4aMu57iDBg&s",
+      "name": "Donat Kentang",
+      "description": "Terbuat dari kentang organik",
+      "image": "https://i.pinimg.com/736x/db/a5/53/dba553c9338be3cbec16046a69708395.jpg",
       "stock": 8
     },
     {
       "name": "Donat Matcha",
       "description": "dengan rasa matcha yang unik",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN4sJOUtJWBG-hixFU5xlHuXyX4aMu57iDBg&s",
+      "image": "https://i.pinimg.com/564x/bc/3a/1b/bc3a1bcd2a7f67210b43fa41b7499658.jpg",
       "stock": 2
     },
     {
-      "name": "Donat Oreo",
-      "description": "dengan biskuit oreo yang renyah",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-g3ef_jebLET40bYBJZMb2dAAMq2y1nfvog&s",
-      "stock": 12
-    },
-    {
-      "name": "Donat Susu",
-      "description": "dengan taburan gula halus",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN4sJOUtJWBG-hixFU5xlHuXyX4aMu57iDBg&s",
+      "name": "Donat Kentang Basic",
+      "description": "Terbuat dari kentang pilihan",
+      "image": "https://i.pinimg.com/736x/b4/76/31/b47631785cbec7603a69c250cafaf982.jpg",
       "stock": 6
     },
     {
       "name": "Donat Rainbow",
       "description": "dengan warna-warni yang menarik",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN4sJOUtJWBG-hixFU5xlHuXyX4aMu57iDBg&s",
+      "image": "https://i.pinimg.com/564x/37/9e/86/379e86d896febeb9ebd545b2f61f05da.jpg",
       "stock": 9
     }
   ]

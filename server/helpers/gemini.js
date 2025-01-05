@@ -12,7 +12,7 @@ const gemini = async (askRandom) => {
     const prompt = askRandom;
 
     const result = await model.generateContent(prompt);
-    console.log(result.response.text, "jjjh");
+    // console.log(result.response.text, "==== ini result dari gemini");
 
     return result.response.text()
 }

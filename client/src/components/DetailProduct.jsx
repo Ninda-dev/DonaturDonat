@@ -10,7 +10,7 @@ export default function DetailProduct() {
 
     const dispatch = useDispatch();
     const productDetail = useSelector((state) => state.product.detail);
-    console.log(productDetail, "=======ini product detail");
+    // console.log(productDetail, "=======ini product detail");
 
 
     useEffect(() => {
@@ -19,7 +19,7 @@ export default function DetailProduct() {
         }
     }, [dispatch, id]);
 
-    console.log(productDetail, "=======ini product detail");
+    // console.log(productDetail, "=======ini product detail");
 
     const cardStyle = {
         width: '50vw',

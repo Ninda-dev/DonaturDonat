@@ -11,7 +11,7 @@ function GoogleLogin() {
         google.accounts.id.initialize({
           client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID, // Replace with your environment variable for the Google Client ID
           callback: async (response) => {
-            console.log("Encoded JWT ID token: " + response.credential);
+            // console.log("Encoded JWT ID token: " + response.credential);
             const { data } = await axios.post(
               "https://api.mrkiwe.site/auth/google",
               {
@@ -19,7 +19,7 @@ function GoogleLogin() {
               }
             );
 
-            console.log(data);
+            // console.log(data);
             localStorage.setItem("access_token", data.access_token);
             navigate("/");
           },

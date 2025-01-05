@@ -57,7 +57,7 @@ class UserController {
 
     static async googleLogin(req, res, next) {
         const { googleToken } = req.body;
-        console.log(googleToken);
+        // console.log(googleToken);
 
         try {
             const ticket = await client.verifyIdToken({
@@ -82,7 +82,7 @@ class UserController {
             const token = signToken({ id: user.id }, process.env.JWT_SECRET);
             res.status(created ? 201 : 200).json({ access_token: token });
         } catch (error) {
-            console.log(error, "INI DISINI ERROR NYA");
+            // console.log(error, "INI DISINI ERROR NYA");
             next(error)
         }
     }

@@ -25,7 +25,7 @@ export default function Card({ product }) {
                 }
             );
 
-            console.log(addClaim, "<<<<<<<<<<<<ini add claim");
+            // console.log(addClaim, "<<<<<<<<<<<<ini add claim");
 
             dispatch(fetchClaims());
 
@@ -33,7 +33,7 @@ export default function Card({ product }) {
 
             // get product by id to get stock
             const productId = product.id;
-            console.log(productId, "<<<<<<<<<<<<==========ini product id");
+            // console.log(productId, "<<<<<<<<<<<<==========ini product id");
 
             const productById = await instanceAxios.get(`products/${productId}`, {
                 headers: {
@@ -67,7 +67,7 @@ export default function Card({ product }) {
 
                 dispatch(fetchProducts());
 
-                console.log(productUpdate, "<<<<<<<<<<<<ini product update");
+                // console.log(productUpdate, "<<<<<<<<<<<<ini product update");
 
                 if (productUpdate.status === 200 && newStock === 0) {
 

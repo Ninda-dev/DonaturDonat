@@ -143,7 +143,7 @@ class ProductController {
             const { prompt } = req.body;
 
             let data = await gemini(prompt)
-            console.log(data, "===== ini udah ada data prompt di controller");
+            // console.log(data, "===== ini udah ada data prompt di controller");
             
             res.status(200).json(data)
         } catch (error) {
