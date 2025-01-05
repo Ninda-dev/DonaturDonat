@@ -11,6 +11,7 @@ import DetailProduct from "./components/DetailProduct";
 import ClaimUser from "./components/ClaimUser";
 import {jwtDecode} from 'jwt-decode';
 import Maps from "./components/Maps";
+import Register from "./pages/Register";
 
 // Function to parse JWT to get the payload
 const parseJwt = (token) => {
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
             }
             return null;
         },
+    },
+    {
+        path: "/register",
+        element: <Register />,
     },
     {
         path: "/admin",

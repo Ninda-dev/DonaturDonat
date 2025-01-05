@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { instanceAxios } from "../axiosClient";
 import Swal from "sweetalert2";
 
@@ -128,12 +128,12 @@ export default function Login() {
                         <div className="mt-3">
                             <p className="text-sm font-light text-brown-400">
                                 No Account?{" "}
-                                <a
-                                    href="/register"
+                                <Link
+                                    to="/register"
                                     className="font-medium text-[977458ff] hover:text-[#ffffff] hover:bg-[#ECB1C0] hover:rounded-sm"
                                 >
                                     Register here
-                                </a>
+                                </Link>
                             </p>
                         </div>
 
