@@ -1,6 +1,6 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquarePlus, faBoxOpen, faPenToSquare, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faSquarePlus, faCookie, faPenToSquare, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function RootLayoutCms() {
@@ -38,7 +38,7 @@ export default function RootLayoutCms() {
                             <Link to="/admin/users">
                                 <div className="flex items-left pl-2 gap-4">
                                     <div className="w-6 ml-1 items-left">
-                                        <FontAwesomeIcon icon={faUser} />
+                                        <FontAwesomeIcon icon={faUsers} />
                                     </div>
                                     <span className="font-medium">User List</span>
                                 </div>
@@ -58,7 +58,7 @@ export default function RootLayoutCms() {
                             <Link to="/admin/products">
                                 <div className="flex items-left pl-2 gap-4">
                                     <div className="w-6 ml-1 items-left">
-                                        <FontAwesomeIcon icon={faBoxOpen} />
+                                        <FontAwesomeIcon icon={faCookie} />
                                     </div>
                                     <span className="font-medium">Product</span>
                                 </div>

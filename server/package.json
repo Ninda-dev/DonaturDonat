@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx nodemon app.js",
+    "dev": "npx nodemon bin/www",
     "start": "node server.js",
     "test": "jest --verbose --forceExit --coverage --runInBand --detectOpenHandles"
   },
