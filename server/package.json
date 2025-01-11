@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ninda-dev/IP-HCK75.git"
+    "url": "git+https://github.com/Ninda-dev/DonaturDonat.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Ninda-dev/IP-HCK75/issues"
+    "url": "https://github.com/Ninda-dev/DonaturDonat/issues"
   },
-  "homepage": "https://github.com/Ninda-dev/IP-HCK75#readme",
+  "homepage": "https://github.com/Ninda-dev/DonaturDonat#readme",
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "bcryptjs": "^2.4.3",
